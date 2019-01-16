@@ -7,12 +7,14 @@ const YourBotArmy = props => {
     <div className="ui segment inverted olive bot-army">
       <div className="ui five column grid">
         <div className="row bot-army-row">
-          {props.bots.map(bot => <BotCard key={bot.id} bot={bot} delisted={props.delisted} />)}
+          {props.bots.map(bot => <BotCard key={bot.id} bot={bot} delisted={this.removeBot}
+          onClick={() => props.removeBot(bot)} />)}
           <h3>Your Bot Army</h3>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default YourBotArmy;
