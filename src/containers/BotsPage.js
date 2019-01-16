@@ -9,7 +9,8 @@ class BotsPage extends React.Component {
   //start here with your code for step one
 
   state = {
-    bots: []
+    bots: [],
+    army: []
   }
 
   fetchBots = () => {
@@ -22,11 +23,17 @@ class BotsPage extends React.Component {
     this.fetchBots()
   }
 
+  addBot = (bot) => {
+      this.setState({
+        army: this.state.army.concat(bot)
+      })
+    }
+
   render() {
     return (
       <div>
-      <BotCollection bots={this.state.bots} />
-      <YourBotArmy />
+      <BotCollection bots={this.state.bots} army={this.state.army} addBot={this.addBot}/>
+      <YourBotArmy army={this.state.army}/>
       </div>
     );
   }
