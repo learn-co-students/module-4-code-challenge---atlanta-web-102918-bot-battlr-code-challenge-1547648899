@@ -12,3 +12,15 @@
 .ui.grid {
   padding: 0px 20px;
 }
+
+.ui.segment {
+      margin: 1rem auto;
+}
+
+.ui.button {
+  margin-bottom: 0.5rem;
+}
+
+.ui.card {
+  margin: 1em;
+}
