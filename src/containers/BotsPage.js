@@ -1,14 +1,14 @@
 import React from "react";
 import BotCollection from './BotCollection.js'
+import YourBotArmy from './YourBotArmy'
+
 const API = ("https://bot-battler-api.herokuapp.com/api/v1/bots")
 
 class BotsPage extends React.Component {
-  //start here with your code for step on
   state = {
-  allBots: this.state
-  
+  allBots: [],
+  armyBots: []
     }
-
 
   fetchBots = () => {
     fetch(API)
@@ -20,11 +20,15 @@ class BotsPage extends React.Component {
     this.fetchBots()
   }
 
+  addToArmy = (bot) => {
+    return this.setState({ armyBots: this.state.armyBots.concat(bot)})}
+
 
   render() {
     return (
       <div>
-        <BotCollection allBots={this.state.allBots} />
+        <YourBotArmy armyBots={this.state.armyBots}/>
+        <BotCollection addToArmy={this.addToArmy} allBots={this.state.allBots} />
       </div>
     );
   }
